@@ -1,0 +1,345 @@
+:root {
+  --bleu2: #01497c;
+  --bleu3: #014f86;
+  --bleu4: #2a6f97;
+  --bleu5: #2c7da0;
+  --bleu6: #468faf;
+  --fonce: #013a63;
+  --pale: #61a5c2;
+  --tresPale: #cce4ee;
+  --fond: #e4f2f7;
+  --fondElement: #f7fcfd;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--fonce);
+  background-color: var(--fond);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0 0 0 0;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 25px 0;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+a {
+  text-decoration: none;
+  color: var(--pale);
+  font-weight: bold;
+}
+a:hover {
+  color: var(--fonce);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 100%;
+}
+tr:nth-child(even) {
+  background-color: var(--tresPale);
+}
+th {
+  background-color: var(--fonce);
+  color: var(--fond);
+}
+th,
+td {
+  padding: 7px;
+  text-align: center;
+}
+th:first-child,
+td:first-child {
+  padding-left: 25px;
+}
+td:first-child {
+  text-align: left;
+}
+th:last-child,
+td:last-child {
+  padding-right: 25px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 2rem;
+  margin-top: 75px;
+}
+.containerRow {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+.element {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-basis: 40%;
+  width: auto;
+  background-color: var(--fondElement);
+  border: 1px solid var(--pale);
+  border-radius: 7px;
+  min-width: 520px;
+  margin-bottom: 15px;
+}
+.element.gros {
+  flex-basis: 90%;
+  min-width: 1055px;
+  width: auto;
+}
+.element.data {
+  flex-direction: row;
+  padding: 15px;
+}
+.alignGauche {
+  text-align: left;
+}
+.logoNom {
+  vertical-align: text-top;
+}
+.logoMini {
+  margin: auto 5px auto 0;
+  max-height: 20px;
+}
+@media screen and (max-width: 768px) {
+  tr:nth-child(2) th:nth-last-child(-n + 3),
+  td:nth-last-child(-n + 3) {
+    display: none;
+  }
+  th:nth-last-child(4),
+  td:nth-last-child(4) {
+    padding-right: 25px;
+  }
+  .statistiquesJoueur td:nth-child(2),
+  .statistiquesJoueur th:nth-child(2),
+  .statistiquesJoueur td:nth-last-child(-n + 10),
+  .statistiquesJoueur th:nth-last-child(-n + 10) {
+    display: none;
+  }
+  .element.gros {
+    flex-basis: 100%;
+    min-width: 0;
+    width: auto;
+  }
+  .element.data {
+    min-width: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    padding: 25px;
+  }
+}
+
+/*****************************/
+/********* Navbar ************/
+/*****************************/
+.navbar {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 0px 10px 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+.isScroll {
+  transition: background-color 0.5s ease-in;
+  background: rgba(255, 255, 255, 0.7);
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex: 1;
+  padding: 25px;
+}
+.premierNiveau {
+  display: flex;
+  font-weight: bold;
+  flex-direction: row;
+  align-items: flex-end;
+  z-index: 10;
+  color: var(--fonce);
+}
+.premierNiveau:hover {
+  color: var(--pale);
+  cursor: pointer;
+}
+.ferme {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--fonce);
+  cursor: pointer;
+}
+.premierNiveau a:hover,
+.ferme:hover,
+.menuMobil:hover,
+.menuDroit a:hover {
+  color: var(--fonce);
+  cursor: pointer;
+}
+.flecheBas,
+.icon {
+  padding-left: 5px;
+  align-items: center;
+  z-index: -1;
+}
+.sousMenu {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+  padding: 20px;
+  margin: 10px 0 0 0;
+  background-color: var(--fondElement);
+  border: 1px solid var(--pale);
+  z-index: 101;
+  transform: translateX(-40%);
+}
+.sousMenu a {
+  display: flex;
+  width: 200px;
+  padding: 0 10px;
+  margin: 0;
+}
+.menuMobil,
+.ferme {
+  display: none;
+}
+.logo {
+  padding-left: 20px;
+}
+.hideMobil,
+.showMobil {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .menu,
+  .menuDroit {
+    display: none;
+  }
+  .menuMobil {
+    display: flex;
+    padding-right: 20px;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    background-color: white;
+    padding: 25px;
+    left: 0;
+    top: 50px;
+    border: 1px solid var(--gris);
+    height: calc(100vh - 102px);
+    width: calc(100vw - 52px);
+    z-index: 101;
+  }
+  .sousMenu {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 0;
+    flex: 1;
+    border: 0;
+    height: auto;
+  }
+  .sousMenu a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 0;
+    padding: 0;
+  }
+  .sousMenu a .descriptionSousMenu,
+  .sousMenu .ferme {
+    display: none;
+  }
+  .showMobil {
+    display: flex;
+  }
+  .hideMobil {
+    display: none;
+  }
+}
+.hide {
+  display: none;
+}
+.show {
+  display: flex;
+}
+
+/***************************************/
+/************ Footer ******************/
+/***************************************/
+
+footer {
+  background-color: var(--fonce);
+  color: white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+}
+
+footer a {
+  color: var(--fond);
+}
+
+footer a:hover {
+  cursor: pointer;
+  color: var(--tresPale);
+}
