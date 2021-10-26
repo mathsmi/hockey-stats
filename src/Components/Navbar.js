@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../Assets/logo.svg";
 import { Link } from "react-router-dom";
 import { FaBars, FaRegWindowClose, FaAngleDown } from "react-icons/fa";
@@ -8,8 +8,20 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState("");
   const [isMenuOpenMobil, setIsMenuOpenMobil] = useState("");
   const [isScroll, setIsScroll] = useState(false);
+  const [equipes, setEquipes] = useState([]);
 
   const { isLoading, error, data } = useFetch(`teams`);
+
+  // On ordonnes les équipes par nom
+  useEffect(() => {
+    if (isLoading) return;
+    var lesEquipes = data.teams;
+    lesEquipes = lesEquipes.sort(function (a, b) {
+      return a["name"] > b["name"] ? 1 : -1;
+    });
+    setEquipes(lesEquipes);
+  }, [data, isLoading]);
+
   if (isLoading) {
     return <div className="loading"></div>;
   }
@@ -87,21 +99,38 @@ function Navbar() {
               <div id="equipe" className="ferme" onClick={closeMenu}>
                 <FaRegWindowClose />
               </div>
-              {data.teams.map((team) => {
-                let logo = require(`../Assets/${team.id}.svg`);
-                return (
-                  <div key={team.franchiseId}>
-                    <img src={logo.default} className="logoMini" />
-                    <a href={`/Pages/Equipe/${team.id}`}>{team.name}</a>
-                  </div>
-                );
-              })}
+              {equipes &&
+                equipes.map((team) => {
+                  let logo = require(`../Assets/${team.id}.svg`);
+                  return (
+                    <div key={team.franchiseId}>
+                      <a href={`/Pages/Equipe/${team.id}`}>
+                        <img
+                          src={logo.default}
+                          className="logoMini"
+                          alt={`logo ${team.name}`}
+                        />
+                        {team.name}
+                      </a>
+                    </div>
+                  );
+                })}
             </div>
           </div>
           <div className="colonneMenu">
             <a href="/Page/NousJoindre">
               <div className="premierNiveau">Nous joindre</div>
             </a>
+          </div>
+        </div>
+        <div className="menuMobil">
+          <div className="colonneMenu">
+            {/******************/}
+            {/***** MOBIL *****/}
+            {/*****************/}
+            <div id="mobil" className="premierNiveau" onMouseEnter={toggleMenu}>
+              <FaBars id="mobil" className="icon" />
+            </div>
           </div>
         </div>
       </div>

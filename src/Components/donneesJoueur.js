@@ -22,42 +22,44 @@ function DonneesJoueur({ id }) {
   }
   return (
     <>
-      {data.people.map((joueur) => {
-        return (
-          <>
-            <div className="section-title">
-              <h1>{joueur.fullName}</h1>
-            </div>
-            <div className="containerRow">
-              <div className="element data">
-                <div>
+      {data.people &&
+        data.people.map((joueur) => {
+          return (
+            <>
+              <div className="section-title">
+                <h1>{joueur.fullName}</h1>
+              </div>
+              <div className="containerRow">
+                <div className="element data">
                   <div>
-                    Équipe:{" "}
-                    <Link to={`/Pages/Equipe/${joueur.currentTeam.id}`}>
-                      {joueur.currentTeam.name}
-                    </Link>
+                    <div>
+                      Équipe:{" "}
+                      <Link to={`/Pages/Equipe/${joueur.currentTeam.id}`}>
+                        {joueur.currentTeam.name}
+                      </Link>
+                    </div>
+                    <div>
+                      Lieu de naissance: {joueur.birthCity},{" "}
+                      {joueur.birthCountry}
+                    </div>
+                    <div>
+                      Date de naissance: {joueur.birthDate}, ({joueur.age})
+                    </div>
+                    <div>Numéro: {joueur.primaryNumber}</div>
+                    <div>Grandeur: {joueur.height}</div>
+                    <div>Poids: {joueur.weight}</div>
+                    <div>Position: {joueur.primaryPosition.type}</div>
+                    <div>Tir: {joueur.shootsCatches}</div>
+                    <div>Poids: {joueur.weight}</div>
                   </div>
                   <div>
-                    Lieu de naissance: {joueur.birthCity}, {joueur.birthCountry}
+                    <img src={silhouette} alt={joueur.fullName} />
                   </div>
-                  <div>
-                    Date de naissance: {joueur.birthDate}, ({joueur.age})
-                  </div>
-                  <div>Numéro: {joueur.primaryNumber}</div>
-                  <div>Grandeur: {joueur.height}</div>
-                  <div>Poids: {joueur.weight}</div>
-                  <div>Position: {joueur.primaryPosition.type}</div>
-                  <div>Tir: {joueur.shootsCatches}</div>
-                  <div>Poids: {joueur.weight}</div>
-                </div>
-                <div>
-                  <img src={silhouette} alt="photo du joueur" />
                 </div>
               </div>
-            </div>
-          </>
-        );
-      })}
+            </>
+          );
+        })}
     </>
   );
 }

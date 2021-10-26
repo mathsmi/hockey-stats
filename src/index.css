@@ -138,15 +138,27 @@ td:last-child {
 .logoMini {
   margin: auto 5px auto 0;
   max-height: 20px;
+  max-width: 22px;
+  vertical-align: sub;
 }
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    font-size: 0.7rem;
+  }
   tr:nth-child(2) th:nth-last-child(-n + 3),
   td:nth-last-child(-n + 3) {
     display: none;
   }
+  th:first-child,
+  td:first-child {
+    padding-left: 5px;
+  }
+
+  th:first-child,
   th:nth-last-child(4),
   td:nth-last-child(4) {
-    padding-right: 25px;
+    padding-right: 5px;
   }
   .statistiquesJoueur td:nth-child(2),
   .statistiquesJoueur th:nth-child(2),
@@ -154,6 +166,7 @@ td:last-child {
   .statistiquesJoueur th:nth-last-child(-n + 10) {
     display: none;
   }
+  .element,
   .element.gros {
     flex-basis: 100%;
     min-width: 0;
@@ -172,7 +185,6 @@ td:last-child {
 /*****************************/
 .navbar {
   width: 100%;
-  min-height: 50px;
   display: flex;
   position: fixed;
   justify-content: space-between;
@@ -185,7 +197,12 @@ td:last-child {
 }
 .isScroll {
   transition: background-color 0.5s ease-in;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  max-height: 40px;
+}
+.isScroll .logo img {
+  max-height: 30px;
 }
 .menu {
   display: flex;
@@ -230,9 +247,9 @@ td:last-child {
 .sousMenu {
   position: absolute;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-flow: row wrap;
+  flex: 0 0 50%;
+  width: auto;
   gap: 5px;
   padding: 20px;
   margin: 10px 0 0 0;
@@ -252,7 +269,7 @@ td:last-child {
   display: none;
 }
 .logo {
-  padding-left: 20px;
+  padding-left: 5px;
 }
 .hideMobil,
 .showMobil {
@@ -260,6 +277,13 @@ td:last-child {
 }
 
 @media screen and (max-width: 768px) {
+  .navbar {
+    min-height: 0;
+    padding: 0;
+  }
+  .logo img {
+    max-height: 30px;
+  }
   .menu,
   .menuDroit {
     display: none;
@@ -275,10 +299,10 @@ td:last-child {
     position: absolute;
     background-color: white;
     padding: 25px;
-    left: 0;
-    top: 50px;
+    right: 0;
+    top: 30px;
     border: 1px solid var(--gris);
-    height: calc(100vh - 102px);
+    height: calc(100vh - 72px);
     width: calc(100vw - 52px);
     z-index: 101;
   }
@@ -291,7 +315,7 @@ td:last-child {
     max-width: 0;
     flex: 1;
     border: 0;
-    height: auto;
+    height: 100vh;
   }
   .sousMenu a {
     display: flex;

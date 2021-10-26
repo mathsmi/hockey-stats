@@ -33,9 +33,10 @@ function Equipe() {
   return (
     <>
       <div className="section-title">
-        {team.teams.map((equipe) => {
-          return <h1 key={equipe.id}>{equipe.name}</h1>;
-        })}
+        {team.teams &&
+          team.teams.map((equipe) => {
+            return <h1 key={equipe.id}>{equipe.name}</h1>;
+          })}
       </div>
       <div className="containerRow">
         <div className="element">
@@ -54,17 +55,18 @@ function Equipe() {
               </tr>
             </thead>
             <tbody>
-              {roster.roster.map((roster) => {
-                return (
-                  <tr key={roster.person.id}>
-                    <td className="bold">
-                      <Link to={`/Pages/Joueur/${roster.person.id}`}>
-                        {roster.person.fullName}
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              })}
+              {roster.roster &&
+                roster.roster.map((roster) => {
+                  return (
+                    <tr key={roster.person.id}>
+                      <td className="bold">
+                        <Link to={`/Pages/Joueur/${roster.person.id}`}>
+                          {roster.person.fullName}
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
