@@ -22,28 +22,28 @@ function StatsJoueur({ id }) {
   }
   return (
     <div className="containerRow">
-      <div className="element gros">
-        <table className="statistiquesJoueur">
+      <div className="element tableauStats statistiquesJoueur">
+        <table>
           <thead>
-            <tr>
+            <tr className="fondDegrade">
               <th>Saison</th>
-              <th>Ligue</th>
+              <th className="cachePetit">Ligue</th>
               <th>Équipe</th>
               <th>Buts</th>
               <th>Passes</th>
               <th>Points</th>
               <th>MJ</th>
-              <th>PIM</th>
-              <th>+/-</th>
-              <th>BAN</th>
-              <th>PAN</th>
-              <th>BIN</th>
-              <th>PIN</th>
-              <th>BG</th>
-              <th>BP</th>
-              <th>T</th>
-              <th>%T</th>
-              <th>%MJ</th>
+              <th className="cachePetit">PIM</th>
+              <th className="cachePetit">+/-</th>
+              <th className="cachePetit">BAN</th>
+              <th className="cachePetit">PAN</th>
+              <th className="cachePetit">BIN</th>
+              <th className="cachePetit">PIN</th>
+              <th className="cachePetit">BG</th>
+              <th className="cachePetit">BP</th>
+              <th className="cachePetit">T</th>
+              <th className="cachePetit">%T</th>
+              <th className="cachePetit">%MJ</th>
             </tr>
           </thead>
           <tbody>
@@ -63,7 +63,7 @@ function StatsJoueur({ id }) {
                                   saison.season.length
                                 )}
                             </td>
-                            <td className="alignGauche">
+                            <td className="alignGauche cachePetit">
                               {saison.league.name === "National Hockey League"
                                 ? "NHL"
                                 : saison.league.name}
@@ -73,49 +73,49 @@ function StatsJoueur({ id }) {
                             <td>{saison.stat.assists}</td>
                             <td>{saison.stat.points}</td>
                             <td>{saison.stat.games}</td>
-                            <td>{saison.stat.pim}</td>
-                            <td>
+                            <td className="cachePetit">{saison.stat.pim}</td>
+                            <td className="cachePetit">
                               {saison.stat.plusMinus
                                 ? saison.stat.plusMinus
                                 : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.powerPlayGoals
                                 ? saison.stat.powerPlayGoals
                                 : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.powerPlayPoints
                                 ? saison.stat.powerPlayPoints
                                 : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.shortHandedGoals
                                 ? saison.stat.shortHandedGoals
                                 : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.shortHandedPoints
                                 ? saison.stat.shortHandedPoints
                                 : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.gameWinningGoals
                                 ? saison.stat.gameWinningGoals
                                 : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.overTimeGoals
                                 ? saison.stat.overTimeGoals
                                 : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.shots ? saison.stat.shots : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.shotPct ? saison.stat.shotPct : "--"}
                             </td>
-                            <td>
+                            <td className="cachePetit">
                               {saison.stat.faceOffPct
                                 ? saison.stat.faceOffPct
                                 : "--"}

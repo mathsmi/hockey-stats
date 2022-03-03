@@ -30,30 +30,48 @@ function DonneesJoueur({ id }) {
                 <h1>{joueur.fullName}</h1>
               </div>
               <div className="containerRow">
-                <div className="element data">
-                  <div>
-                    <div>
-                      Équipe:{" "}
-                      <Link to={`/Pages/Equipe/${joueur.currentTeam.id}`}>
-                        {joueur.currentTeam.name}
-                      </Link>
+                <div className="element fondDegrade donneesJoueurs">
+                  <div className="renseignementsJoueurs">
+                    <div className="photoJoueur">
+                      <img src={silhouette} alt={joueur.fullName} />
                     </div>
                     <div>
-                      Lieu de naissance: {joueur.birthCity},{" "}
-                      {joueur.birthCountry}
+                      <div className="case">
+                        Équipe:{" "}
+                        <Link to={`/Pages/Equipe/${joueur.currentTeam.id}`}>
+                          {joueur.currentTeam.name}
+                        </Link>
+                      </div>
+                      <div className="case">
+                        Lieu de naissance: {joueur.birthCity},{" "}
+                        {joueur.birthCountry}
+                      </div>
+                      <div className="case">
+                        Date de naissance: {joueur.birthDate}, ({joueur.age})
+                      </div>
+                      <div className="case">Numéro: {joueur.primaryNumber}</div>
+                      <div className="case">Grandeur: {joueur.height}</div>
+                      <div className="case">Poids: {joueur.weight}</div>
+                      <div className="case">
+                        Position: {joueur.primaryPosition.type}
+                      </div>
+                      <div className="case">Tir: {joueur.shootsCatches}</div>
+                      <div className="case">Poids: {joueur.weight}</div>
                     </div>
-                    <div>
-                      Date de naissance: {joueur.birthDate}, ({joueur.age})
-                    </div>
-                    <div>Numéro: {joueur.primaryNumber}</div>
-                    <div>Grandeur: {joueur.height}</div>
-                    <div>Poids: {joueur.weight}</div>
-                    <div>Position: {joueur.primaryPosition.type}</div>
-                    <div>Tir: {joueur.shootsCatches}</div>
-                    <div>Poids: {joueur.weight}</div>
                   </div>
-                  <div>
-                    <img src={silhouette} alt={joueur.fullName} />
+                  <div className="statsCarriere">
+                    <div className="statCarriere">
+                      <span className="nombre">923</span>Parties
+                    </div>
+                    <div className="statCarriere">
+                      <span className="nombre">50</span>Buts
+                    </div>
+                    <div className="statCarriere">
+                      <span className="nombre">187</span>Passes
+                    </div>
+                    <div className="statCarriere">
+                      <span className="nombre">237</span>Points
+                    </div>
                   </div>
                 </div>
               </div>

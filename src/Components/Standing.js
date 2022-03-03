@@ -23,12 +23,9 @@ function Standing() {
       {data.records &&
         data.records.map((division) => {
           return (
-            <div
-              key={division.division.id}
-              className="element classementDivision"
-            >
+            <div key={division.division.id} className="element tableauStats">
               <table>
-                <thead>
+                <thead className="fondDegrade">
                   <tr>
                     <th colSpan="9">
                       <h3>{division.division.name}</h3>
@@ -41,9 +38,9 @@ function Standing() {
                     <th>D</th>
                     <th>DP</th>
                     <th>PTS</th>
-                    <th>BP</th>
-                    <th>BC</th>
-                    <th>SÉQ</th>
+                    <th className="cachePetit">BP</th>
+                    <th className="cachePetit">BC</th>
+                    <th className="cachePetit">SÉQ</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -70,9 +67,9 @@ function Standing() {
                           <td>{equipe.leagueRecord.losses}</td>
                           <td>{equipe.leagueRecord.ot}</td>
                           <td>{equipe.points}</td>
-                          <td>{equipe.goalsScored}</td>
-                          <td>{equipe.goalsAgainst}</td>
-                          <td>
+                          <td className="cachePetit">{equipe.goalsScored}</td>
+                          <td className="cachePetit">{equipe.goalsAgainst}</td>
+                          <td className="cachePetit">
                             {equipe.streak !== undefined
                               ? equipe.streak.streakCode
                               : ""}

@@ -9,7 +9,6 @@ function Navbar() {
   const [isMenuOpenMobil, setIsMenuOpenMobil] = useState("");
   const [isScroll, setIsScroll] = useState(false);
   const [equipes, setEquipes] = useState([]);
-
   const { isLoading, error, data } = useFetch(`teams`);
 
   // On ordonnes les équipes par nom
@@ -53,7 +52,7 @@ function Navbar() {
 
   // Changement de couleur d'arrière plan de la barre de menu
   window.onscroll = function () {
-    var scrollLimit = 250;
+    var scrollLimit = 100;
     if (window.scrollY >= scrollLimit) {
       setIsScroll(true);
     } else setIsScroll(false);
@@ -62,10 +61,12 @@ function Navbar() {
   return (
     <>
       <div
-        className={`${isScroll ? "navbar isScroll" : "navbar"}`}
+        className={`${
+          isScroll ? "navbar fondDegrade isScroll" : "fondDegrade navbar"
+        }`}
         onMouseLeave={closeMenu}
       >
-        <a href="/" className="logo">
+        <a href="/" className="logo element">
           <img src={logo} alt="logo" />
         </a>
         <div
@@ -73,6 +74,9 @@ function Navbar() {
             isMenuOpenMobil === "mobil" ? "menu showMobil" : "menu hideMobil"
           }`}
         >
+          <div id="mobil" className="ferme buttonClose" onClick={closeMenu}>
+            <FaRegWindowClose className="icon" />
+          </div>
           <div className="colonneMenu">
             <a href="/Page/Classement">
               <div className="premierNiveau">Classement</div>

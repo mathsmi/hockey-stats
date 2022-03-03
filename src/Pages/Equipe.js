@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useFetch from "../Components/useFetch";
+import StatsJoueurSaison from "../Components/statsJoueurSaison";
 
 function Equipe() {
   const { id } = useParams();
@@ -39,31 +40,30 @@ function Equipe() {
           })}
       </div>
       <div className="containerRow">
-        <div className="element">
+        <div className="element tableauStats">
           <table>
             <thead>
-              <tr>
+              <tr className="fondDegrade">
                 <th></th>
+                <th>Buts</th>
+                <th>Passes</th>
+                <th>Points</th>
                 <th>MJ</th>
-                <th>V</th>
-                <th>D</th>
-                <th>DP</th>
-                <th>PTS</th>
-                <th>BP</th>
-                <th>BC</th>
-                <th>SÉQ</th>
+                <th className="cachePetit">PIM</th>
+                <th className="cachePetit">+/-</th>
               </tr>
             </thead>
             <tbody>
               {roster.roster &&
                 roster.roster.map((roster) => {
                   return (
-                    <tr key={roster.person.id}>
-                      <td className="bold">
+                    <tr>
+                      <td>
                         <Link to={`/Pages/Joueur/${roster.person.id}`}>
                           {roster.person.fullName}
                         </Link>
                       </td>
+                      <StatsJoueurSaison id={roster.person.id} />
                     </tr>
                   );
                 })}
