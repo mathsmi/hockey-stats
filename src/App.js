@@ -11,7 +11,7 @@ import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-    <main className={localStorage.getItem("theme")}>
+    <main>
       <Navbar />
       <div className="container">
         <Router>

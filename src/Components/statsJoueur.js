@@ -9,17 +9,6 @@ function StatsJoueur({ id }) {
   if (isLoading) {
     return <div className="loading"></div>;
   }
-  if (error.show) {
-    return (
-      <div className="page-error">
-        <h1>Une erreur c'est produite!</h1>
-        <p>{error.msg}</p>
-        <Link to="/" className="btn">
-          Retour à l'accueil
-        </Link>
-      </div>
-    );
-  }
   return (
     <div className="containerRow">
       <div className="element tableauStats statistiquesJoueur">

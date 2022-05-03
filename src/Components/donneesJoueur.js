@@ -4,21 +4,10 @@ import useFetch from "./useFetch";
 import silhouette from "../Assets/player.png";
 
 function DonneesJoueur({ id }) {
-  const { isLoading, error, data } = useFetch(`people/${id}`);
+  const { isLoading, data } = useFetch(`people/${id}`);
 
   if (isLoading) {
     return <div className="loading"></div>;
-  }
-  if (error.show) {
-    return (
-      <div className="page-error">
-        <h1>Une erreur c'est produite!</h1>
-        <p>{error.msg}</p>
-        <Link to="/" className="btn">
-          Retour à l'accueil
-        </Link>
-      </div>
-    );
   }
   return (
     <>

@@ -4,29 +4,25 @@ const API_ENDPOINT = `https://statsapi.web.nhl.com/api/v1/`;
 
 const useFetch = (urlParams) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState({ show: false, msg: "" });
   const [data, setData] = useState(null);
-  const fetchStats = async (url) => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(url);
-      const data = await response;
-      if (data.statusText === "OK") {
-        setData(data.data);
-        setError({ show: false, msg: "test" });
-      } else {
-        setError({ show: true, msg: data.statusText });
-      }
-      setIsLoading(false);
-    } catch (error) {
-      setError({ show: true, msg: error });
-    }
-  };
-
   useEffect(() => {
-    fetchStats(`${API_ENDPOINT}${urlParams}`);
+    const fetchStats = async function () {
+      try {
+        const response = await axios.get(`${API_ENDPOINT}${urlParams}`);
+        const data = await response;
+        if (data.statusText === "OK") {
+          setData(data.data);
+        }
+      } catch (error) {
+        throw error;
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchStats();
   }, [urlParams]);
-  return { isLoading, error, data };
+
+  return { isLoading, data };
 };
 
 export default useFetch;

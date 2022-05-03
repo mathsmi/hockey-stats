@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import logo from "../Assets/logo.svg";
-import { Link } from "react-router-dom";
 import { FaBars, FaRegWindowClose, FaAngleDown } from "react-icons/fa";
 import useFetch from "../Components/useFetch";
 
@@ -9,7 +8,7 @@ function Navbar() {
   const [isMenuOpenMobil, setIsMenuOpenMobil] = useState("");
   const [isScroll, setIsScroll] = useState(false);
   const [equipes, setEquipes] = useState([]);
-  const { isLoading, error, data } = useFetch(`teams`);
+  const { isLoading, data } = useFetch(`teams`);
 
   // On ordonnes les équipes par nom
   useEffect(() => {
@@ -23,17 +22,6 @@ function Navbar() {
 
   if (isLoading) {
     return <div className="loading"></div>;
-  }
-  if (error.show) {
-    return (
-      <div className="page-error">
-        <h1>Une erreur c'est produite!</h1>
-        <p>{error.msg}</p>
-        <Link to="/" className="btn">
-          Retour à l'accueil
-        </Link>
-      </div>
-    );
   }
   function toggleMenu(e) {
     const menu = e.target.id;
